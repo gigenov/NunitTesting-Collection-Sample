@@ -1,12 +1,18 @@
+using Collections;
+
 namespace Collection.UnitTests
 {
     public class CollectionTests
     {
 
         [Test]
-        public void Test1()
+        public void Test_Collection_EmptyConstructor()
         {
-            Assert.Pass();
+            //Arrange and Act
+            var coll = new Collection<int>();
+
+            //Assert
+            Assert.AreEqual(coll.ToString(), "[]");
         }
     }
 }
