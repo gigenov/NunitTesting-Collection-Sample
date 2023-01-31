@@ -49,8 +49,9 @@ namespace Collection.UnitTests
         }
 
         // Unit tests Insert Method Radostina
+
         [Test]
-        public void Test_Collection_InsertAtStart()
+        public void Test_Collection_ToStringEmpty()
         {
             // Arrange
             var coll = new Collection<int>(1, 2, 3);
@@ -79,10 +80,16 @@ namespace Collection.UnitTests
 
             // Assert
             Assert.That(expected, Is.EqualTo(actual));
+
+            //Arrange and Act
+            var coll = new Collection<int>();
+
+            //Assert
+            Assert.That(coll.ToString(), Is.EqualTo("[]"));
         }
 
         [Test]
-        public void Test_Collection_InsertAtMiddle()
+        public void Test_Collection_ToStringSingle()
         {
             // Arrange
             var coll = new Collection<double>(1, 2, 3);
@@ -133,10 +140,16 @@ namespace Collection.UnitTests
             Assert.That(coll.Count, Is.GreaterThan(odlCapacity), "Collection count is grater than old capacity");
             Assert.That(odlCapacity, Is.EqualTo(16), "Old Capacity");
             Assert.That(newCapacity, Is.EqualTo(32), "New Capacity");
+
+            //Arrange and Act
+            var coll = new Collection<int>(432);
+
+            //Assert
+            Assert.That(coll.ToString(), Is.EqualTo("[432]"));
         }
 
         [Test]
-        public void Test_Collection_InsertAtInvalidIndex()
+        public void Test_Collection_ToStringMultiple()
         {
             // Arrange
             var coll = new Collection<string>("Ivan", "Peter", "Maria");
@@ -172,6 +185,12 @@ namespace Collection.UnitTests
             var coll = new Collection<string>(data.Split(",", StringSplitOptions.RemoveEmptyEntries));
 
             Assert.That(() => coll.InsertAt(index, item), Throws.InstanceOf<ArgumentOutOfRangeException>());
+
+            //Arrange and Act
+            var coll = new Collection<int>(2, 3, 4);
+
+            //Assert
+            Assert.That(coll.ToString(), Is.EqualTo("[2, 3, 4]"));
         }
     }
 }
