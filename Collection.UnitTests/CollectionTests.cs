@@ -16,7 +16,7 @@ namespace Collection.UnitTests
         }
 
         //Unit Tests from Georgi
-        
+
         [Test]
         public void Test_Collection_ToStringEmpty()
         {
