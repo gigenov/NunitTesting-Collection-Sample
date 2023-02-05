@@ -15,36 +15,36 @@ namespace Collection.UnitTests
             Assert.AreEqual(coll.ToString(), "[]");
         }
 
-        // Insert tests Radostina
+        //Unit Tests from Georgi
+        
         [Test]
-        public void Test_Collection_InsertAtStart()
+        public void Test_Collection_ToStringEmpty()
         {
-            Console.WriteLine("TO DO Test_Collection_InsertAtStart");
+            //Arrange and Act
+            var coll = new Collection<int>();
+
+            //Assert
+            Assert.That(coll.ToString(), Is.EqualTo("[]"));
         }
 
         [Test]
-        public void Test_Collection_InsertAtEnd()
+        public void Test_Collection_ToStringSingle()
         {
-            Console.WriteLine("Test_Collection_InsertAtEnd");
+            //Arrange and Act
+            var coll = new Collection<int>(432);
+
+            //Assert
+            Assert.That(coll.ToString(), Is.EqualTo("[432]"));
         }
 
         [Test]
-        public void Test_Collection_InsertAtMiddle()
+        public void Test_Collection_ToStringMultiple()
         {
-            Console.WriteLine("TO DO Test_Collection_InsertAtMiddle");
-        }
+            //Arrange and Act
+            var coll = new Collection<int>(2, 3, 4);
 
-        [Test]
-        public void Test_Collection_InsertAtWithGrow()
-        {
-            Console.WriteLine("TO DO Test_Collection_InsertAtWithGrow");
+            //Assert
+            Assert.That(coll.ToString(), Is.EqualTo("[2, 3, 4]"));
         }
-
-        [Test]
-        public void Test_Collection_InsertAtInvalidIndex()
-        {
-            Console.WriteLine("TO DO Test_Collection_InsertAtInvalidIndex");
-        }
-
     }
 }
