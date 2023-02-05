@@ -47,5 +47,51 @@ namespace Collection.UnitTests
             Assert.That(coll.ToString(), Is.EqualTo("[2, 3, 4]"));
         }
         //Test Ani//
+        public void Test_Collection_ConstructorSingleItem()
+        {
+            var coll = new Collection<int>(5);
+
+            var actual = coll.ToString();
+            var expected = "[5]";
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [Test]
+        public void Test_Collection_ConstructorMultipleItems()
+        {
+            var coll = new Collection<int>(5, 6);
+            Assert.AreEqual(coll.ToString(), "[5, 6]");
+
+        }
+        [Test]
+
+
+        public void Test_Collection_Add()
+        {
+            //Arrange
+            var coll = new Collection<string>("Ani", "Tedi");
+
+            //Act
+            coll.Add("Joro");
+
+            //Assert
+            Assert.AreEqual(coll.ToString(), "[Ani, Tedi, Joro]");
+        }
+
+        [Test]
+        public void Test_Collection_AddWithGrow()
+        {
+            var coll = new Collection<string>("Ani", "Tedi");
+
+            coll.AddRange("Tea");
+
+            Assert.AreEqual(coll.ToString(), "[Ani, Tedi, Tea]");
+        }
+        [Test]
+        public void Test_Collection_AddRange()
+        {
+
+        }
     }
 }
